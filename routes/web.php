@@ -28,15 +28,21 @@ Route::get('/', [GuestHomeController::class, 'index'] );
 Route::get('/dashboard', [AdminHomeController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
 Route::middleware('auth')
-    ->prefix('profile')
+    ->prefix('/Admin')
+    ->name('Admin.')
+    ->group(function () {
+    // rotta resouce project 
+    Route::resource('projects', ProjectController::class);
+});
+
+
+Route::middleware('auth')
+    ->prefix('/admin')
     ->name('profile.')
     ->group(function () {
     Route::get('/', [ProfileController::class, 'edit'])->name('edit');
     Route::patch('/', [ProfileController::class, 'update'])->name('update');
     Route::delete('/', [ProfileController::class, 'destroy'])->name('destroy');
 });
-
-// rotta resouce project 
-Route::resource('Admin', ProjectController::class);
 
 require __DIR__.'/auth.php';

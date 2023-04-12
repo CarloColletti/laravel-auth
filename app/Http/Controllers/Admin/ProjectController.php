@@ -15,7 +15,14 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
+        // variable with all projcts
+        $projects = Project::all();
+
+        // pagination
+        $projects = project::paginate(15);
+
+        // return 
+        return view('admin.project.index', compact('projects'));
     }
 
     /**
@@ -47,7 +54,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        return view('admin.project.show', compact('project'));
     }
 
     /**
