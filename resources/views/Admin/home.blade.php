@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Dashboard
+@endsection
+
 @section('content')
 <div class="container">
     <h2 class="fs-4 text-secondary my-4">
@@ -17,7 +21,7 @@
                     </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('You are logged on!') }}
                 </div>
             </div>
         </div>

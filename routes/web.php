@@ -1,7 +1,12 @@
 <?php
-
+// profile controller 
 use App\Http\Controllers\ProfileController;
+
+// admin controller 
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
+use App\Http\Controllers\Admin\ProjectController;
+
+// guest controler 
 use App\Http\Controllers\Guest\HomeController as GuestHomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [GuestHomeController::class, 'index'] );
 
 // rotta alla dashboard una volta loggato 
-Route::get('/dashboard', [AdminHomeController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [AdminHomeController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
 Route::middleware('auth')
     ->prefix('profile')
@@ -30,5 +35,8 @@ Route::middleware('auth')
     Route::patch('/', [ProfileController::class, 'update'])->name('update');
     Route::delete('/', [ProfileController::class, 'destroy'])->name('destroy');
 });
+
+// rotta resouce project 
+Route::resource('Admin', ProjectController::class);
 
 require __DIR__.'/auth.php';

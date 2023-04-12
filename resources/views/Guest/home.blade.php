@@ -1,4 +1,9 @@
 @extends('layouts.app')
+
+@section('title')
+    Home
+@endsection
+
 @section('content')
 
 <div class="jumbotron p-5 mb-4 bg-light rounded-3">
