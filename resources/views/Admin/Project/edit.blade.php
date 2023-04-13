@@ -30,17 +30,17 @@
       {{-- title  --}}
       <div class="col-4 my-3">
         <label for="text" class="form-label">Titolo: </label>
-        <input type="text" id="title" name="title" placeholder="Titolo" class="form-control" />
+        <input type="text" id="title" name="title" placeholder="Titolo" class="form-control" value="{{ $project->title }}"/>
       </div>
       {{-- description --}}
       <div class="col-4 my-3">
         <label for="description" class="form-label">Descrizione: </label>
-        <textarea id="description" name="description" placeholder="Descrizione" class="form-control"></textarea>
+        <textarea id="description" name="description" placeholder="Descrizione" class="form-control">{{ $project->date }}</textarea>
       </div>
       {{-- date  --}}
       <div class="col-4 my-3">
         <label for="date" class="form-label">Data inizio: </label>
-        <input type="date" id="date" name="date" placeholder="data" class="form-control" />        
+        <input type="date" id="date" name="date" placeholder="data" class="form-control" value="{{ $project->date }}"/>        
       </div>
 
       <div class="col-4 my-3">
