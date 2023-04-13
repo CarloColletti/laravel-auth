@@ -77,7 +77,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('Admin.project.edit', compact('project'));
     }
 
     /**
@@ -89,7 +89,12 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+        $data = $request->all();
+
+        $project->update($data);
+
+        return redirect ()->route('Admin.projects.show', $project);
+
     }
 
     /**
