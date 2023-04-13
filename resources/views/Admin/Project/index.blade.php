@@ -22,7 +22,7 @@
 
         <div class="col-4">
           <div class="d-flex">
-            <a href="{{ route('Admin.projects.create') }}" class="btn btn-outline-success ms-auto" type="submit">Aggiungi Canzone</a>
+            <a href="{{ route('Admin.projects.create') }}" class="btn btn-outline-success ms-auto" type="submit">Nuovo Progetto</a>
           </div>
         </div>
 
