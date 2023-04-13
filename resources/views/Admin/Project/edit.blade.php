@@ -35,7 +35,7 @@
       {{-- description --}}
       <div class="col-4 my-3">
         <label for="description" class="form-label">Descrizione: </label>
-        <textarea id="description" name="description" placeholder="Descrizione" class="form-control">{{ $project->date }}</textarea>
+        <textarea id="description" name="description" placeholder="Descrizione" class="form-control">{{ $project->description }}</textarea>
       </div>
       {{-- date  --}}
       <div class="col-4 my-3">

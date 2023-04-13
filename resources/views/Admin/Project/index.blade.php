@@ -67,3 +67,31 @@
       {{$projects->links()}}
     </div>
 @endsection
+
+@section('modal')
+    @foreach ($projects as $project)
+  <div class="modal fade" id="delete-modal-{{$project->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Conferma di Eliminazione del Progetto</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Se si procede, l'elemento: {{$project->title}} selezionato verrà eliminato.<br>
+          L'operazione non è reversibile <br>
+          Vuoi davvero procedere?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+          <form action="{{route('Admin.projects.destroy',['project' => $project])}}" method="POST" class="px-2 text-danger">
+            @csrf
+            @method('delete')
+            <button type="submit" class="btn btn-danger">Elimina</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endforeach
+@endsection
