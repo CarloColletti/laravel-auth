@@ -11,6 +11,23 @@
 @section('content')
     <div class="container py-5">
 
+      {{-- search bar  --}}
+      <div class="row py-4">
+        <div class="col-8">
+          <form class="d-flex">
+            <input class="form-control me-2" type="text" name="term" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+
+        <div class="col-4">
+          <div class="d-flex">
+            <a href="{{ route('Admin.projects.create') }}" class="btn btn-outline-success ms-auto" type="submit">Aggiungi Canzone</a>
+          </div>
+        </div>
+
+      </div>
+
 
       {{-- table show all projects  --}}
       <table class="table table-striped">

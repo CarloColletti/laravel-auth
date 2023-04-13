@@ -97,6 +97,10 @@
             @yield('content')
         </main>
     </div>
+
+
+    @yield('modal')
+    @yield('script')
 </body>
 
 </html>

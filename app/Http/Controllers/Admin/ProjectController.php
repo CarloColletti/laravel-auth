@@ -13,16 +13,22 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if($request->has('term')){
+            $term = $request->get('term');
+            $projects = project::where('title', 'LIKE', "%$term%")->paginate(10)->withQueryString(); 
+        }else{
+            $projects = project::paginate(15);
+        }
         // variable with all projcts
-        $projects = Project::all();
+        // $projects = Project::all();
 
         // pagination
-        $projects = project::paginate(15);
+        // $projects = project::paginate(15);
 
         // return 
-        return view('admin.project.index', compact('projects'));
+        return view('Admin.project.index', compact('projects'));
     }
 
     /**
@@ -32,7 +38,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.project.create');
     }
 
     /**
@@ -43,7 +49,13 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $project = new Project;
+  
+        $project->fill($request->all());
+        
+        $project->save();
+
+        return redirect ()->route('Admin.projects.show', $project);
     }
 
     /**
